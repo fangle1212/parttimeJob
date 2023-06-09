@@ -10,7 +10,7 @@
             "path" : "pages/detail/detail",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "长沙日结兼职",
+                "navigationBarTitleText": "来吧开心鸟",
                 "enablePullDownRefresh": false
             }
             
@@ -27,7 +27,7 @@
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "长沙日结兼职",
+		"navigationBarTitleText": "来吧开心鸟",
 		"navigationBarBackgroundColor": "#f9506e",
 		"backgroundColor": "#f9506e"
 	},

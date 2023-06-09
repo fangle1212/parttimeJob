@@ -1,6 +1,6 @@
 {
-    "name" : "jianzhi",
-    "appid" : "__UNI__8884BB3",
+    "name" : "sideHustleUniapp",
+    "appid" : "__UNI__54D16B2",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -50,11 +50,12 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wx17d0425a247c7ef6",
+        "appid" : "wxf4f0a8865d0491ab",
         "setting" : {
             "urlCheck" : false,
             "postcss" : true,
-            "minified" : true
+            "minified" : true,
+            "es6" : true
         },
         "usingComponents" : true
     },
@@ -62,7 +63,8 @@
         "usingComponents" : true
     },
     "mp-baidu" : {
-        "usingComponents" : true
+        "usingComponents" : true,
+        "appid" : "24872131"
     },
     "mp-toutiao" : {
         "usingComponents" : true
@@ -73,6 +75,6 @@
     },
     "vueVersion" : "2",
     "h5" : {
-        "title" : "长沙日结兼职"
+        "title" : "来找个活"
     }
 }

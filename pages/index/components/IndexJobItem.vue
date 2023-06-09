@@ -1,15 +1,15 @@
 <template>
-	<view class="job-item">
+	<navigator :url="'/pages/detail/detail?id='+data.id" hover-class="none" class="job-item">
 		<view class="left">
-			<navigator :url="'/pages/detail/detail?id='+data.id" hover-class="none" class="title">{{ data.title }}</navigator>
-			<JobTips :tips="data.tips" />
-			<view class="area">{{ data.area }}</view>
+			<view class="title">{{ data.title }}</view>
+			<JobTips :tips="data.tips" noLink />
+			<view class="region">[{{ data.region.length ? data.region.join('、') : '不限' }}]</view>
 		</view>
 		<view class="right">
 			<view class="salary">{{ data.salary }}</view>
-			<navigator :url="'/pages/detail/detail?id='+data.id" hover-class="none" class="btn">立即报名</navigator>
+			<view class="btn">立即查看</view>
 		</view>
-	</view>
+	</navigator>
 </template>
 
 <script>
@@ -31,22 +31,26 @@
 	.job-item {
 		font-size: 28rpx;
 		background: #fff;
-		border-radius: 30rpx;
-		padding: 30rpx;
-		margin: 30rpx 0 0 0;
+		border-radius: 10rpx;
+		padding: 20rpx 30rpx;
+		margin: 0 0 30rpx 0;
 		display: flex;
 		justify-content: space-between;
+		.left,
 		.right {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
+		}
+		.right {
 			align-items: flex-end;
+			padding: 10rpx 0;
 		}
 		.title {
 			font-size: 32rpx;
 			font-weight: bold;
 			@include multi-line-overflow(2);
-			margin: 0 0 12rpx 0;
+			margin-bottom: 10rpx;
 		}
 		.salary {
 			color: $primaryColor;
@@ -62,8 +66,10 @@
 			line-height: 60rpx;
 			display: inline-block;
 		}
-		.area {
+		.region {
 			color: #999;
+			font-size: 24rpx;
+			margin-top: 10rpx;
 		}
 	}
 </style>

@@ -6,13 +6,18 @@
 </template>
 
 <script>
-	const app = getApp()
+	import {
+		mapState
+	} from 'vuex'
 	export default {
 		name: 'IndexHeader',
-		data() {
-			return {
-				siteTitle: app.globalData.siteTitle,
-				slogan: app.globalData.slogan
+		computed: {
+			...mapState(['config']),
+			siteTitle() {
+				return this.config.siteTitle
+			},
+			slogan() {
+				return this.config.slogan
 			}
 		}
 	}
@@ -32,10 +37,10 @@
 			margin: 0 10px 0 0;
 		}
 		.title {
-			font-size: 32rpx;
+			font-size: 36rpx;
 		}
 		.slogan {
-			font-size: 24rpx;
+			font-size: 28rpx;
 		}
 	}
 </style>

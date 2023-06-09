@@ -1,17 +1,19 @@
 <script>
-	import config from 'utils/config.js'
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
+			
 		},
-		onShow: function() {
-			console.log('App Show')
+		onShow: async function() {
+			await Promise.all([this.$store.dispatch('getConfig'), this.$store.dispatch('getJobList')])
+			this.$isResolve()
 		},
 		onHide: function() {
 			console.log('App Hide')
 		},
-		globalData: {
-			...config
+		onPageNotFound() {
+			uni.navigateTo({
+				url: 'pages/index/index'
+			})
 		}
 	}
 </script>
@@ -19,8 +21,12 @@
 <style>
 	/*每个页面公共css */
 	page {
-		background: #fafafa;
+		background: #f5f5f5;
 		font-size: 28rpx;
 		line-height: 48rpx;
+	}
+
+	* {
+		-webkit-user-select: text;
 	}
 </style>

@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/search/search"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "来吧开心鸟",
+    "navigationBarBackgroundColor": "#f9506e",
+    "backgroundColor": "#f9506e"
+  },
+  "usingComponents": {}
+}

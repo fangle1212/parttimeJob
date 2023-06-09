@@ -1,0 +1,1 @@
+<view class="contact data-v-28bba7d7"><view class="title data-v-28bba7d7">免费发布信息联系我们</view><image class="code data-v-28bba7d7" src="{{wechatImg}}"></image><view class="text data-v-28bba7d7">{{wechatId}}</view></view>

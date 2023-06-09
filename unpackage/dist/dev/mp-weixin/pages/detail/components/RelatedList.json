@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index-job-item": "/pages/index/components/IndexJobItem"
+  }
+}

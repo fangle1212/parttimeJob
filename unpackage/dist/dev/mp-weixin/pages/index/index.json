@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "basic-layout": "/layouts/BasicLayout",
+    "index-header": "/pages/index/components/IndexHeader",
+    "index-search": "/pages/index/components/IndexSearch",
+    "index-filters": "/pages/index/components/IndexFilters",
+    "index-job-item": "/pages/index/components/IndexJobItem"
+  }
+}

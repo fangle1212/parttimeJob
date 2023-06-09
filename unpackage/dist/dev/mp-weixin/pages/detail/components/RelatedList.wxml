@@ -1,0 +1,1 @@
+<view class="related-list"><view class="job-list"><block wx:for="{{filterJobList}}" wx:for-item="item" wx:for-index="__i0__" wx:key="id"><index-job-item vue-id="{{'e659b5fe-1-'+__i0__}}" data="{{item}}" bind:__l="__l"></index-job-item></block></view></view>

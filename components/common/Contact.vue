@@ -1,17 +1,24 @@
 <template>
 	<view class="contact">
 		<view class="title">免费发布信息联系我们</view>
-		<image class="code" :src="codeImgUrl" ></image>
+		<image class="code" :src="wechatImg" ></image>
+		<view class="text">{{ wechatId }}</view>
 	</view>
 </template>
 
 <script>
-	const app = getApp()
+	import {
+		mapState
+	} from 'vuex'
 	export default {
 		name: 'Contact',
-		data() {
-			return {
-				codeImgUrl: app.globalData.codeImgUrl
+		computed: {
+			...mapState(['config']),
+			wechatImg() {
+				return this.config.wechatImg
+			},
+			wechatId() {
+				return this.config.wechatId
 			}
 		}
 	}
@@ -26,7 +33,10 @@
 			width: 400rpx;
 			height: 400rpx;
 			display: block;
-			margin: 20rpx auto 0 auto;
+			margin: 20rpx auto;
+		}
+		.text {
+			color: #666;
 		}
 	}
 </style>

@@ -1,10 +1,10 @@
 export default {
-	siteTitle: '长沙日结兼职',
-	slogan: '无广告、无学费、不刷单、不收费',
-	baseUrl: 'http://ftp6574264.host124.sanfengyun.cn/',
-	codeImgUrl: 'http://ftp6574264.host124.sanfengyun.cn/jianzhi/img/code.png',
+	baseUrl: 'https://baobeizhiku.com/jianzhi/',
+	siteTitle: '来吧开心鸟',
+	slogan: '笑一个吧，功成名就不是目的',
+	wechatId: 'chengzi5212010',
+	wechatImg: 'https://baobeizhiku.com/jianzhi/imgs/code.png',
 	regionArr: [
-		{ id: '0', name: '全长沙' },
 		{ id: '1', name: '芙蓉区' },
 		{ id: '2', name: '天心区' },
 		{ id: '3', name: '岳麓区' },
@@ -14,5 +14,10 @@ export default {
 		{ id: '7', name: '长沙县' },
 		{ id: '8', name: '浏阳市' },
 		{ id: '9', name: '宁乡市' },
-	]
+	],
+	shareConfig: {
+		title: '来吧开心鸟！',
+		path: '/pages/index/index',
+		imageUrl: 'https://baobeizhiku.com/jianzhi/imgs/share.jpg'
+	}
 }
