@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#22ac38",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "job-basic-layout": "/layouts/JobBasicLayout",
+    "index-search": "/pages/job/components/IndexSearch",
+    "index-filters": "/pages/job/components/IndexFilters",
+    "index-job-item": "/pages/job/components/IndexJobItem"
+  }
+}

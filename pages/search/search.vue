@@ -1,63 +1,90 @@
 <template>
 	<view class="page-search">
-		<BasicLayout>
+		<JobBasicLayout ref="layout" isList>
 			<template #top>
 				<view class="job-list">
-					<IndexJobItem v-for="item in filterJobList" :key="item.id" :data="item" />
+					<IndexJobItem v-for="item in filterJobList" :key="item.id" :data="item"
+						@share="$refs.layout.shareShow()" />
 				</view>
 			</template>
-		</BasicLayout>
+		</JobBasicLayout>
 	</view>
 </template>
 
 <script>
 	import config from '@/utils/config.js'
-	import BasicLayout from '../../layouts/BasicLayout.vue'
-	import IndexJobItem from '../index/components/IndexJobItem.vue'
+	import JobBasicLayout from '../../layouts/JobBasicLayout.vue'
+	import IndexJobItem from '../job/components/IndexJobItem.vue'
 	import {
 		mapState
 	} from 'vuex'
+	import {
+		getJobList
+	} from '@/api/index.js'
+	const pageSize = 10
 	export default {
 		name: 'PageSearch',
 		components: {
-			BasicLayout,
+			JobBasicLayout,
 			IndexJobItem
 		},
 		data() {
 			return {
-				filterJobList: []
+				filterList: [],
+				filterJobList: [],
+				page: 1
 			}
 		},
 		computed: {
-			...mapState(['jobList']),
+			...mapState(['config'])
 		},
-		async onLoad(option) {
+		onLoad(option) {
 			uni.setNavigationBarTitle({
 				title: option.text
 			})
-			await this.$onLaunched
 			this.getJobList(option)
 		},
+		onReachBottom() {
+			this.reachBottom()
+		},
 		onShareAppMessage() {
-			return config.shareConfig
+			return this.config.shareConfig
 		},
 		methods: {
 			async getJobList({
 				text,
 				searchKey = 'tips'
 			}) {
-				const list = this.jobList
-				this.filterJobList = list.filter(item => (searchKey !== 'tips' && item[searchKey].length === 0) || item[
-					searchKey].includes(text))
+				uni.showLoading({
+					title: '加载中'
+				})
+				const list = await getJobList()
+				this.filterList = list.filter(item => (searchKey !== 'tips' && item[searchKey].length === 0) ||
+					item[
+						searchKey].includes(text))
+				this.setPage()
+				uni.hideLoading()
+			},
+			setPage() {
+				this.filterJobList = this.filterList.slice(0, this.page * pageSize)
+			},
+			reachBottom() {
+				const totalPage = Math.ceil(this.filterList.length / pageSize)
+				if (totalPage >= this.page + 1) {
+					this.page++
+					this.setPage()
+				}
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	@import '../../assets/css/common.scss';
+	@import '../../assets/css/jobCommon.scss';
 
 	.page-search {
-		padding: 16px;
+		::v-deep .job-list {
+			padding: 16px;
+		}
 	}
 </style>

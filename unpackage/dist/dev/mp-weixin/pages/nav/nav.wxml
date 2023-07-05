@@ -1,0 +1,1 @@
+<view class="page-nav data-v-4eec0a4e"><view class="title data-v-4eec0a4e">点击可复制工具链接</view><list generic:scoped-slots-item="nav-list-item" data-vue-generic="scoped" vue-id="e2d47f10-1" fileName="nav" isSlot="{{true}}" data-ref="list" class="data-v-4eec0a4e vue-ref" bind:__l="__l" vue-slots="{{['item']}}"></list></view>

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "job-tips": "/pages/job/components/JobTips"
+  }
+}

@@ -1,20 +1,13 @@
 <template>
 	<view class="page-index">
-		<BasicLayout>
+		<BasicLayout ref="layout">
 			<template #top>
-				<IndexHeader />
-				<IndexSearch ref="search" @search="handleSearch" />
-				<view class="job-filters">
-					<!-- 区域筛选 -->
-					<IndexFilters v-if="regionFiltersConfig.filterList.length" class="filter" ref="cityFilter" title="区域筛选" selectAllText="全长沙"
-						:filtersConfig="regionFiltersConfig" @onclick="handleSearch" />
-					<!-- 福利 -->
-					<IndexFilters v-if="welfareFilterConfig.filterList.length" class="filter" ref="welfareFilter"
-						title="福利筛选" :filtersConfig="welfareFilterConfig" @onclick="handleSearch" />
-				</view>
-				<view class="job-list">
-					<IndexJobItem v-for="item in filterJobList" :key="item.id" :data="item" />
-				</view>
+				<HiTabs :tabsConfig="tabsConfig" @handleTabClick="handleTabClick" />
+				<Today v-if="key === 'today'" ref="list" />
+				<Help v-if="key === 'help'" ref="list" />
+				<Nav v-if="key === 'nav'" ref="list" />
+				<Temp v-if="key === 'temp'" ref="list" />
+				<!-- <List v-if="key === 'list'" ref="list" /> -->
 			</template>
 		</BasicLayout>
 	</view>
@@ -22,97 +15,62 @@
 
 <script>
 	import BasicLayout from '../../layouts/BasicLayout.vue'
-	import IndexHeader from './components/IndexHeader.vue'
-	import IndexSearch from './components/IndexSearch.vue'
-	import IndexFilters from './components/IndexFilters.vue'
-	import IndexJobItem from './components/IndexJobItem.vue'
-	import {
-		mapState
-	} from 'vuex'
+	import HiTabs from './components/HiTabs'
+	import Today from '../today/today.vue'
+	import Help from '../help/help'
+	import Nav from '../nav/nav.vue'
+	import Temp from '../temp/temp.vue'
+	import List from '../job/job.vue'
+	const tabsConfig = [{
+		title: '今日信息差',
+		key: 'today'
+	}, {
+		title: '生活求助',
+		key: 'help'
+	}, {
+		title: '工具导航',
+		key: 'nav'
+	}, {
+		title: '二手闲置',
+		key: 'temp'
+	}]
 	export default {
-		name: 'PageIndex',
 		components: {
 			BasicLayout,
-			IndexHeader,
-			IndexSearch,
-			IndexFilters,
-			IndexJobItem
+			HiTabs,
+			Today,
+			Help,
+			Nav,
+			Temp,
+			List
 		},
 		data() {
 			return {
-				filterJobList: []
+				tabsConfig,
+				key: tabsConfig[0].key
 			}
 		},
-		computed: {
-			...mapState(['config', 'jobList']),
-			regionFiltersConfig() {
-				const filterList = this.config.regionArr || []
-				return {
-					filterName: '区域',
-					filterList
-				}
-			},
-			welfareFilterConfig() {
-				const allFilterList = this.jobList.map(item => item.tips).flat(Infinity)
-				const filterList = [...new Set(allFilterList)].map((item, index) => ({
-					name: item,
-					id: (index + 1).toString()
-				}))
-				return {
-					filterName: '福利',
-					filterList
-				}
-			}
+		onPullDownRefresh() {
+			this.$refs.list.pullDownRefresh()
 		},
-		async onLoad() {
-			await this.$onLaunched
-			this.filterJobList = this.jobList
+		onReachBottom() {
+			this.$refs.list.reachBottom()
 		},
 		onShareAppMessage() {
-			return this.config.shareConfig
+			return {
+				title: '来吧开心鸟！',
+				path: '/pages/index/index'
+			}
 		},
 		methods: {
-			handleSearch() {
-				const allJobList = this.jobList
-				// 关键字
-				const keyword = this.$refs.search.keyword || ''
-				this.filterJobList = allJobList.filter(item => item.title.includes(keyword))
-				// 地区筛选
-				const cityFilter = 'cityFilter'
-				const regionId = this.$refs[cityFilter].selected
-				if (regionId !== '0') {
-					const regionName = this.$refs[cityFilter].selectedName
-					this.filterJobList = this.filterJobList.filter(item => item.region.length === 0 || item.region
-						.includes(
-							regionName))
-				}
-				// 福利筛选
-				const welfareFilter = 'welfareFilter'
-				const welfareId = this.$refs[welfareFilter].selected
-				if (welfareId !== '0') {
-					const welfareName = this.$refs[welfareFilter].selectedName
-					this.filterJobList = this.filterJobList.filter(item => item.tips.includes(welfareName))
-				}
+			handleTabClick(index, callback) {
+				this.key = tabsConfig[index].key
+				callback && callback()
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.page-index {
-		.job-list {
-			padding: 0 16px;
-		}
-
-		.job-filters {
-			padding: 20rpx 16px;
-			display: flex;
-			align-items: center;
-
-			.filter {
-				flex: 1;
-				text-align: center;
-			}
-		}
-	}
+	.page-index {}
 </style>

@@ -1,8 +1,9 @@
 {
   "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#22ac38",
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "basic-layout": "/layouts/BasicLayout",
-    "index-job-item": "/pages/index/components/IndexJobItem"
+    "job-basic-layout": "/layouts/JobBasicLayout",
+    "index-job-item": "/pages/job/components/IndexJobItem"
   }
 }

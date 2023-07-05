@@ -1,11 +1,12 @@
 {
-  "navigationBarTitleText": "来吧开心鸟",
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#22ac38",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "uv-parse": "/uni_modules/uv-parse/components/uv-parse/uv-parse",
-    "basic-layout": "/layouts/BasicLayout",
+    "job-basic-layout": "/layouts/JobBasicLayout",
     "tips": "/components/common/Tips",
-    "job-tips": "/pages/index/components/JobTips",
+    "job-tips": "/pages/job/components/JobTips",
     "related-list": "/pages/detail/components/RelatedList"
   }
 }

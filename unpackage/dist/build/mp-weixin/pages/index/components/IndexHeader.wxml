@@ -1,1 +1,0 @@
-<view class="index-header data-v-06cc8a96"><image class="logo data-v-06cc8a96" src="../../../static/logo.png"></image><view class="title data-v-06cc8a96">{{siteTitle}}<view class="slogan data-v-06cc8a96">{{slogan}}</view></view></view>

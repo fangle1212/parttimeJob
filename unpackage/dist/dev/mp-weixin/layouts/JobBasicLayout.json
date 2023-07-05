@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "contact": "/components/common/Contact",
+    "share-tip": "/components/common/ShareTip"
+  }
+}

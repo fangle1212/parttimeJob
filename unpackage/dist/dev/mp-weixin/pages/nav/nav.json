@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "nav-list-item": "/pages/nav/nav-list-item",
+    "list": "/components/common/List"
+  }
+}

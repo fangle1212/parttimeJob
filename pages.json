@@ -3,14 +3,16 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": ""
+				"navigationBarTitleText": "来吧开心鸟",
+				"enablePullDownRefresh": true
 			}
 		}
         ,{
             "path" : "pages/detail/detail",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "来吧开心鸟",
+                "navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#22ac38",
                 "enablePullDownRefresh": false
             }
             
@@ -20,7 +22,18 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#22ac38",
                 "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/job/job",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#22ac38",
+                "enablePullDownRefresh": true
             }
             
         }

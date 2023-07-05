@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@multiavatar/multiavatar": "^1.0.7",
+    "faker": "^5.5.3"
+  }
+}

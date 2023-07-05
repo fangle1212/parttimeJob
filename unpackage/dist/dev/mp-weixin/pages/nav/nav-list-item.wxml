@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['handleCopy',['$0'],['item.des']]]]]}}" class="nav-item-box data-v-4eec0a4e" bindtap="__e">{{item.title}}</view>

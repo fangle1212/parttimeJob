@@ -10,7 +10,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
 	state: {
 		config: {},
-		jobList: []
+		jobList: [],
+		timesConfig: {}
 	},
 	mutations: {
 		setConfig(state, config = {}) {
@@ -28,8 +29,8 @@ const store = new Vuex.Store({
 			commit
 		}) {
 			return new Promise(async (resolve) => {
-				const res = await getConfig()
-				commit('setConfig', res.data)
+				const config = await getConfig()
+				commit('setConfig', config)
 				resolve()
 			})
 		},
@@ -37,8 +38,8 @@ const store = new Vuex.Store({
 			commit
 		}) {
 			return new Promise(async (resolve) => {
-				const res = await getJobList()
-				commit('setJobList', res.data)
+				const data = await getJobList()
+				commit('setJobList', data)
 				resolve()
 			})
 		}

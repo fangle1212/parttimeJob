@@ -26,7 +26,7 @@
 /* 文章场景相关 */
 .tips.data-v-79ed15de {
   padding: 20rpx;
-  border: #f9506e dashed 6rpx;
+  border: #22ac38 dashed 6rpx;
   background: #fff;
   border-radius: 30rpx;
 }

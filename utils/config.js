@@ -2,8 +2,8 @@ export default {
 	baseUrl: 'https://baobeizhiku.com/jianzhi/',
 	siteTitle: '来吧开心鸟',
 	slogan: '笑一个吧，功成名就不是目的',
-	wechatId: 'chengzi5212010',
-	wechatImg: 'https://baobeizhiku.com/jianzhi/imgs/code.png',
+	wechatId: '开心鸟长沙兼职群',
+	wechatImg: 'https://baobeizhiku.com/jianzhi/imgs/code2.png',
 	regionArr: [
 		{ id: '1', name: '芙蓉区' },
 		{ id: '2', name: '天心区' },
@@ -16,8 +16,10 @@ export default {
 		{ id: '9', name: '宁乡市' },
 	],
 	shareConfig: {
-		title: '来吧开心鸟！',
+		title: '长沙兼职',
 		path: '/pages/index/index',
 		imageUrl: 'https://baobeizhiku.com/jianzhi/imgs/share.jpg'
-	}
+	},
+	indexBanner: [{ src: 'https://baobeizhiku.com/jianzhi/imgs/banner.png', isShare: true }],
+	times: 10
 }
