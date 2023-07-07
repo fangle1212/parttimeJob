@@ -19,3 +19,26 @@ export const tomorrowTimestamp = () => {
 	const tomorrowDay = tomorrow.getDate();
 	return +new Date(`${tomorrowYear}-${tomorrowMonth}-${tomorrowDay} 00:00:00`)
 }
+
+export const getUrl = (str) => {
+  // 使用正则表达式匹配
+  const reg = /((?:https?:\/\/)?[\w/\-?=%.]+\.(?:douyin|pipix)\.com\S+)/i;
+  const matches = str.match(reg);
+  if (matches) {
+    return matches[1];
+  }
+ 
+  // 或者使用字符串分隔
+  const tokens = str.split(/[\s\n]/);
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
+    if (token.includes('douyin.com') || token.includes('pipix.com')) {
+      const pos = token.indexOf('https');
+      const url = pos >= 0 ? token.substr(pos) : '';
+      return url;
+    }
+  }
+ 
+  // 未能匹配到合法的URL，返回空值
+  return null;
+}

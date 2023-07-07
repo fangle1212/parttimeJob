@@ -1,1 +1,0 @@
-<view class="basic-layout data-v-88ce2e42"><slot name="top"></slot><view class="basic-layout-box data-v-88ce2e42"><slot name="center"></slot><slot name="bottom"></slot></view></view>

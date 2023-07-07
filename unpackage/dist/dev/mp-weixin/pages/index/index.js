@@ -148,6 +148,11 @@ var BasicLayout = function BasicLayout() {
     return resolve(__webpack_require__(/*! ../../layouts/BasicLayout.vue */ 75));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
+var IndexHeader = function IndexHeader() {
+  __webpack_require__.e(/*! require.ensure | pages/index/components/IndexHeader */ "pages/index/components/IndexHeader").then((function () {
+    return resolve(__webpack_require__(/*! ./components/IndexHeader */ 423));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
 var HiTabs = function HiTabs() {
   __webpack_require__.e(/*! require.ensure | pages/index/components/HiTabs */ "pages/index/components/HiTabs").then((function () {
     return resolve(__webpack_require__(/*! ./components/HiTabs */ 82));
@@ -189,6 +194,7 @@ var tabsConfig = [{
 var _default = {
   components: {
     BasicLayout: BasicLayout,
+    IndexHeader: IndexHeader,
     HiTabs: HiTabs,
     Today: Today,
     Help: Help,

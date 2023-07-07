@@ -2,12 +2,7 @@
   "navigationBarTitleText": "来吧开心鸟",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "basic-layout": "/layouts/BasicLayout",
     "hi-tabs": "/pages/index/components/HiTabs",
-    "today": "/pages/today/today",
-    "help": "/pages/help/help",
-    "nav": "/pages/nav/nav",
-    "temp": "/pages/temp/temp",
-    "list": "/pages/job/job"
+    "tab-video": "/pages/index/components/TabVideo"
   }
 }

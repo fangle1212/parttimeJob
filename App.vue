@@ -45,7 +45,8 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
+	@import './assets/css/common.scss';
 	/*每个页面公共css */
 	page {
 		background: #f5f5f5;
@@ -55,5 +56,31 @@
 
 	* {
 		-webkit-user-select: text;
+	}
+	uni-button {
+		font-size: 32rpx;
+		line-height: 50rpx;
+		padding: 10rpx 20rpx;
+	}
+	uni-button[type=primary] {
+	    background-color: $primaryColor;
+		border: 1px solid $primaryColor;
+	}
+	uni-button[loading][type=primary],
+	uni-button[type=primary].button-hover{
+	    color: hsla(0,0%,100%,.6);
+	    background-color: rgba($primaryColor, 0.6);
+	}
+	uni-button[type=primary][plain] {
+	    color: $primaryColor;
+	    border: 1px solid $primaryColor;
+	}
+	uni-button[loading][type=primary][plain],
+	uni-button[type=primary][plain].button-hover{
+	    color: rgba($primaryColor, 0.6);
+	    border-color: rgba($primaryColor, 0.6);
+	}
+	.uni-button-color {
+		color: $primaryColor !important;
 	}
 </style>

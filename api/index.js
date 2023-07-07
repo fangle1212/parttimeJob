@@ -50,3 +50,25 @@ export const getJobList = async (fileName = 'list') => {
 	})
 
 }
+
+export const getApi = async (url, type = 'video') => {
+	return new Promise(resolve => {
+		uni.request({
+			method: 'POST',
+			url: `https://baobeizhiku.com/api.php`,
+			data: {
+				url,
+				type
+			},
+			header: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			success(res) {
+				console.log(res)
+				if (res.statusCode === 200 && res.data?.code === 200) {
+					resolve(res.data.data)
+				}
+			}
+		})
+	})
+}

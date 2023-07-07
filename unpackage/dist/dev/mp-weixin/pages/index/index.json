@@ -3,6 +3,7 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "basic-layout": "/layouts/BasicLayout",
+    "index-header": "/pages/index/components/IndexHeader",
     "hi-tabs": "/pages/index/components/HiTabs",
     "today": "/pages/today/today",
     "help": "/pages/help/help",

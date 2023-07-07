@@ -1,76 +1,55 @@
 <template>
 	<view class="page-index">
-		<BasicLayout ref="layout">
-			<template #top>
-				<HiTabs :tabsConfig="tabsConfig" @handleTabClick="handleTabClick" />
-				<Today v-if="key === 'today'" ref="list" />
-				<Help v-if="key === 'help'" ref="list" />
-				<Nav v-if="key === 'nav'" ref="list" />
-				<Temp v-if="key === 'temp'" ref="list" />
-				<!-- <List v-if="key === 'list'" ref="list" /> -->
-			</template>
-		</BasicLayout>
+		<HiTabs :tabsConfig="tabsConfig" @handleTabClick="handleTabClick" />
+		<TabVideo v-if="currentInfo.type === 'video'" :info="currentInfo" />
 	</view>
 </template>
 
 <script>
-	import BasicLayout from '../../layouts/BasicLayout.vue'
 	import HiTabs from './components/HiTabs'
-	import Today from '../today/today.vue'
-	import Help from '../help/help'
-	import Nav from '../nav/nav.vue'
-	import Temp from '../temp/temp.vue'
-	import List from '../job/job.vue'
+	import TabVideo from './components/TabVideo'
 	const tabsConfig = [{
-		title: '今日信息差',
-		key: 'today'
-	}, {
-		title: '生活求助',
-		key: 'help'
-	}, {
-		title: '工具导航',
-		key: 'nav'
-	}, {
-		title: '二手闲置',
-		key: 'temp'
-	}]
+			title: '短视频去水印',
+			type: 'video'
+		}
+		// {
+		// 	title: '短视频图集去水印',
+		// 	type: 'images'
+		// }
+	]
 	export default {
 		components: {
-			BasicLayout,
 			HiTabs,
-			Today,
-			Help,
-			Nav,
-			Temp,
-			List
+			TabVideo
 		},
 		data() {
 			return {
 				tabsConfig,
-				key: tabsConfig[0].key
+				currentInfo: tabsConfig[0]
 			}
 		},
-		onPullDownRefresh() {
-			this.$refs.list.pullDownRefresh()
-		},
-		onReachBottom() {
-			this.$refs.list.reachBottom()
+		onLoad(options) {
+			if(options?.type) {
+				const index = this.tabsConfig.findIndex(item => item.type === options.type)
+				if (index !== -1) {
+					this.currentInfo = this.tabsConfig[index]
+				}
+			}
 		},
 		onShareAppMessage() {
 			return {
 				title: '来吧开心鸟！',
-				path: '/pages/index/index'
+				path: `/pages/index/index?type=${this.currentInfo.type}`
 			}
 		},
 		methods: {
-			handleTabClick(index, callback) {
-				this.key = tabsConfig[index].key
-				callback && callback()
+			handleTabClick(index) {
+				this.currentInfo = this.tabsConfig[index]
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.page-index {}
+
 </style>
